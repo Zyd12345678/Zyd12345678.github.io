@@ -4,11 +4,11 @@
   
     
     <entry>
-      <title>第一篇文章</title>
-      <link href="/2025/03/21/2025-05-21%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
-      <url>/2025/03/21/2025-05-21%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      <title>Hexo语法</title>
+      <link href="/2025/03/26/Hexo%E8%AF%AD%E6%B3%95/"/>
+      <url>/2025/03/26/Hexo%E8%AF%AD%E6%B3%95/</url>
       
-        <content type="html"><![CDATA[<h2 id="这是我的第一篇文章"><a href="#这是我的第一篇文章" class="headerlink" title="这是我的第一篇文章"></a>这是我的第一篇文章</h2>]]></content>
+        <content type="html"><![CDATA[<h1 id="Hexo语法"><a href="#Hexo语法" class="headerlink" title="Hexo语法"></a>Hexo语法</h1><h2 id="创建md文件"><a href="#创建md文件" class="headerlink" title="创建md文件"></a>创建md文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post 标题名</span><br></pre></td></tr></table></figure>]]></content>
       
       
       
@@ -17,11 +17,24 @@
     
     
     <entry>
-      <title>Hello World</title>
-      <link href="/2025/03/21/hello-world/"/>
-      <url>/2025/03/21/hello-world/</url>
+      <title>Markdown语法</title>
+      <link href="/2025/03/24/Markdown%E8%AF%AD%E6%B3%95/"/>
+      <url>/2025/03/24/Markdown%E8%AF%AD%E6%B3%95/</url>
       
-        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><h2 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h2><p>一级标题：# 一级标题<br>二级标题：## 二级标题<br>三级标题：### 三级标题<br>以此类推<br>…</p><h2 id="提示框"><a href="#提示框" class="headerlink" title="提示框"></a>提示框</h2><p>提示框：&gt; 文本</p><blockquote><p>这里是提示框文本</p></blockquote>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>第一篇文章</title>
+      <link href="/2025/03/21/2025-05-21%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/"/>
+      <url>/2025/03/21/2025-05-21%E7%AC%AC%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0/</url>
+      
+        <content type="html"><![CDATA[<h2 id="Java基础"><a href="#Java基础" class="headerlink" title="Java基础"></a>Java基础</h2><!-- <iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1806446513&bvid=BV1gb42177hm&cid=1632321482&p=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe>【SpringCloud+RabbitMQ+Docker+Redis+搜索+分布式，系统详解springcloud微服务技术栈课程|黑马程序员Java微服务】（https://www.bilibili.com/video/BV1LQ4y127n4/?share_source=copy_web&vd_source=f60fbc97d80349e8e8739086381b1a3c） --><!-- 【黑马程序员Java+AI智能辅助编程全套视频教程，java零基础入门到大牛一套通关】 https://www.bilibili.com/video/BV1gb42177hm/?p=3&share_source=copy_web&vd_source=f60fbc97d80349e8e8739086381b1a3c --><p><a href="https://www.bilibili.com/video/BV1gb42177hm/?p=3&share_source=copy_web&vd_source=f60fbc97d80349e8e8739086381b1a3c">黑马程序员Java+AI智能辅助编程全套视频教程，java零基础入门到大牛一套通关</a></p><blockquote><p>必须要安装依赖才能设置为 <code>true</code>，否则会报错！</p></blockquote>]]></content>
       
       
       
