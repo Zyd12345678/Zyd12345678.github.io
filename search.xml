@@ -4,12 +4,56 @@
   
     
     <entry>
+      <title>问题及解决方式</title>
+      <link href="/2025/04/10/%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/"/>
+      <url>/2025/04/10/%E9%97%AE%E9%A2%98%E5%8F%8A%E8%A7%A3%E5%86%B3%E6%96%B9%E5%BC%8F/</url>
+      
+        <content type="html"><![CDATA[<h1 id="问题及解决方式"><a href="#问题及解决方式" class="headerlink" title="问题及解决方式"></a>问题及解决方式</h1><h2 id="1-could-not-extract-ResultSet-无效SQL语句"><a href="#1-could-not-extract-ResultSet-无效SQL语句" class="headerlink" title="1.could not extract ResultSet (无效SQL语句)"></a>1.could not extract ResultSet (无效SQL语句)</h2><p>代码如下:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">String hql=<span class="string">&quot;from TflowAuditCur t where t.dataId= ?1 and formCode=?2&quot;</span></span><br><span class="line"><span class="type">Query</span> <span class="variable">query</span> <span class="operator">=</span> sessionFactory.getCurrentSession().createSQLQuery(hql);</span><br><span class="line">query.setParameter(<span class="number">1</span>,dataId);</span><br><span class="line">query.setParameter(<span class="number">2</span>,formCode);</span><br><span class="line">List&lt;TflowAuditCur&gt; list = query.list(); </span><br></pre></td></tr></table></figure><p>错误原因:HQL和SQL混用(错误使用createSQLQuery())</p><blockquote><p>createSQLQuery() 用于执行原生 SQL，但你的 hql 变量实际是 HQL 语句（如 from TflowAuditCur），导致 Hibernate 尝试将 HQL 当作 SQL 解析，最终生成无效 SQL</p></blockquote><p>解决方式:使用HQL</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 1. 使用 createQuery 代替 createSQLQuery</span></span><br><span class="line"><span class="type">String</span> <span class="variable">hql</span> <span class="operator">=</span> <span class="string">&quot;FROM TflowAuditCur t WHERE t.dataId = :dataId AND t.formCode = :formCode&quot;</span>;</span><br><span class="line"><span class="type">Query</span> <span class="variable">query</span> <span class="operator">=</span> sessionFactory.getCurrentSession().createQuery(hql);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 2. 使用命名参数（更清晰）</span></span><br><span class="line">query.setParameter(<span class="string">&quot;dataId&quot;</span>, dataId);</span><br><span class="line">query.setParameter(<span class="string">&quot;formCode&quot;</span>, formCode);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 3. 获取结果</span></span><br><span class="line">List&lt;TflowAuditCur&gt; list = query.list();</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Idea知识库</title>
+      <link href="/2025/04/07/Idea%E7%9F%A5%E8%AF%86%E5%BA%93/"/>
+      <url>/2025/04/07/Idea%E7%9F%A5%E8%AF%86%E5%BA%93/</url>
+      
+        <content type="html"><![CDATA[<h1 id="Idea知识库"><a href="#Idea知识库" class="headerlink" title="Idea知识库"></a>Idea知识库</h1><h2 id="1-Project-Structure"><a href="#1-Project-Structure" class="headerlink" title="1.Project Structure"></a>1.Project Structure</h2><ul><li>Project: 配置 项目名称、SDK(Jdk)、语言级别(选择与Jdk一致的版本)、编译器输出路径</li><li>Modules: 配置模块，包括源代码目录(Sources)、编译路径(Path)、依赖</li><li>Libraries: 管理项目中使用的库，可以添加本地或者网络的jar包，也可以进行排除或删除操作</li><li>Facets: 配置项目中使用的框架，如Spring或者Hibernate</li><li>Artifacts: 定义模块的打包方式，如jar、war</li></ul><h2 id="2-问题解决"><a href="#2-问题解决" class="headerlink" title="2.问题解决"></a>2.问题解决</h2><h3 id="2-1Idea代码打不了断点，注释可以打断点"><a href="#2-1Idea代码打不了断点，注释可以打断点" class="headerlink" title="2.1Idea代码打不了断点，注释可以打断点"></a>2.1Idea代码打不了断点，注释可以打断点</h3><p>原因:当前启动项目代码与现在代码不一致<br>解决方式:先停掉程序，然后再打断点。（如果是JavaWeb老项目，需要删除out目录再运行程序）</p>]]></content>
+      
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>Hexo语法</title>
       <link href="/2025/03/26/Hexo%E8%AF%AD%E6%B3%95/"/>
       <url>/2025/03/26/Hexo%E8%AF%AD%E6%B3%95/</url>
       
         <content type="html"><![CDATA[<h1 id="Hexo语法"><a href="#Hexo语法" class="headerlink" title="Hexo语法"></a>Hexo语法</h1><h2 id="创建md文件"><a href="#创建md文件" class="headerlink" title="创建md文件"></a>创建md文件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new post 标题名</span><br></pre></td></tr></table></figure><h2 id="清理缓存并启动服务"><a href="#清理缓存并启动服务" class="headerlink" title="清理缓存并启动服务"></a>清理缓存并启动服务</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl;hexo s</span><br></pre></td></tr></table></figure><h2 id="清理缓存并推送远程"><a href="#清理缓存并推送远程" class="headerlink" title="清理缓存并推送远程"></a>清理缓存并推送远程</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo cl;hexo d</span><br></pre></td></tr></table></figure>]]></content>
       
+      
+      <categories>
+          
+          <category> Hexo </category>
+          
+      </categories>
       
       
     </entry>
@@ -21,8 +65,14 @@
       <link href="/2025/03/24/Markdown%E8%AF%AD%E6%B3%95/"/>
       <url>/2025/03/24/Markdown%E8%AF%AD%E6%B3%95/</url>
       
-        <content type="html"><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><h2 id="标题语法"><a href="#标题语法" class="headerlink" title="标题语法"></a>标题语法</h2><p>一级标题：# 一级标题<br>二级标题：## 二级标题<br>三级标题：### 三级标题<br>以此类推<br>…</p><h2 id="文字语法"><a href="#文字语法" class="headerlink" title="文字语法"></a>文字语法</h2><p>正文：文字<br>斜体：</p><h2 id="提示框语法"><a href="#提示框语法" class="headerlink" title="提示框语法"></a>提示框语法</h2><p>提示框：&gt; 文本</p><blockquote><p>这里是提示框文本</p></blockquote><h2 id="图片语法"><a href="#图片语法" class="headerlink" title="图片语法"></a>图片语法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](/img/)</span><br></pre></td></tr></table></figure><h2 id="表格语法"><a href="#表格语法" class="headerlink" title="表格语法"></a>表格语法</h2><table><thead><tr><th>表头1</th><th>表头2</th></tr></thead><tbody><tr><td>正文1</td><td>正文2</td></tr></tbody></table><h2 id="有序语法"><a href="#有序语法" class="headerlink" title="有序语法"></a>有序语法</h2><p>数字.空格 内容 </p><h2 id="无序语法"><a href="#无序语法" class="headerlink" title="无序语法"></a>无序语法</h2><p>-空格 内容</p>]]></content>
+        <content type="html"><![CDATA[<h1 id="Markdown语法"><a href="#Markdown语法" class="headerlink" title="Markdown语法"></a>Markdown语法</h1><h2 id="1-标题语法"><a href="#1-标题语法" class="headerlink" title="1.标题语法"></a>1.标题语法</h2><p>一级标题：# 一级标题<br>二级标题：## 二级标题<br>三级标题：### 三级标题<br>以此类推<br>…</p><h2 id="2-文字语法"><a href="#2-文字语法" class="headerlink" title="2.文字语法"></a>2.文字语法</h2><p>正文：文字<br>斜体：</p><h2 id="3-提示框语法"><a href="#3-提示框语法" class="headerlink" title="3.提示框语法"></a>3.提示框语法</h2><p>提示框：&gt; 文本</p><blockquote><p>这里是提示框文本</p></blockquote><h2 id="4-图片语法"><a href="#4-图片语法" class="headerlink" title="4.图片语法"></a>4.图片语法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">![图片描述](/img/)</span><br></pre></td></tr></table></figure><h2 id="5-表格语法"><a href="#5-表格语法" class="headerlink" title="5.表格语法"></a>5.表格语法</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">表头1|表头2</span><br><span class="line">-|-</span><br><span class="line">正文1|正文2</span><br></pre></td></tr></table></figure><table><thead><tr><th>表头1</th><th>表头2</th></tr></thead><tbody><tr><td>正文1</td><td>正文2</td></tr></tbody></table><h2 id="6-有序语法"><a href="#6-有序语法" class="headerlink" title="6.有序语法"></a>6.有序语法</h2><p>数字.空格 内容 </p><h2 id="7-无序语法"><a href="#7-无序语法" class="headerlink" title="7.无序语法"></a>7.无序语法</h2><p>-空格 内容</p>]]></content>
       
+      
+      <categories>
+          
+          <category> Markdown </category>
+          
+      </categories>
       
       
     </entry>
@@ -36,6 +86,12 @@
       
         <content type="html"><![CDATA[<h2 id="学习视频"><a href="#学习视频" class="headerlink" title="学习视频"></a>学习视频</h2><blockquote><p>学习视频</p></blockquote><!-- B站视频嵌入示例 --><!-- 设置视频上来不播放src路径加上&autoplay=0 --><iframe src="//player.bilibili.com/player.html?isOutside=true&aid=1806446513&bvid=BV1gb42177hm&cid=25705251969&p=1&autoplay=0" title="黑马程序员"  loading="lazy" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"></iframe><h2 id="Jdk和Jre区别"><a href="#Jdk和Jre区别" class="headerlink" title="Jdk和Jre区别"></a>Jdk和Jre区别</h2><p><img src="/img/Jdk.png" alt="Jdk和Jre区别"></p><h2 id="为什么要配置环境变量？"><a href="#为什么要配置环境变量？" class="headerlink" title="为什么要配置环境变量？"></a>为什么要配置环境变量？</h2><p>配置完环境变量，可以在任何位置运行Java命令。</p><blockquote><p>主要设置Java_Home和将Jdk的bin目录配置到系统的Path目录<br>较新的Jdk，安装完会自动配置环境变量</p></blockquote><h2 id="Java的跨平台原理"><a href="#Java的跨平台原理" class="headerlink" title="Java的跨平台原理"></a>Java的跨平台原理</h2><p>一次编译、处处执行<br><img src="/img/javac.png" alt="Java的跨平台原理"></p><h2 id="Java的项目的代码结构"><a href="#Java的项目的代码结构" class="headerlink" title="Java的项目的代码结构"></a>Java的项目的代码结构</h2><p>Project-Module-Package-Class<br><img src="/img/Project.png" alt="Java的项目的代码结构"></p><h2 id="常用快捷键"><a href="#常用快捷键" class="headerlink" title="常用快捷键"></a>常用快捷键</h2><!-- 箭头网站 --><!-- https://symbl.cc/cn/2193/ --><table><thead><tr><th>快捷键</th><th>作用</th></tr></thead><tbody><tr><td>Ctrl+D</td><td>复制当前行到下一行</td></tr><tr><td>Ctrl+Y</td><td>删除当前行</td></tr><tr><td>Ctrl+Alt+L</td><td>格式化代码</td></tr><tr><td>Alt+Shift+↑</td><td>上移当前代码</td></tr><tr><td>Alt+Shift+↓</td><td>上移当前代码</td></tr><tr><td>Ctrl+&#x2F;</td><td>注释</td></tr><tr><td>Ctrl+Shift+&#x2F;</td><td>注释</td></tr></tbody></table><h2 id="Idea中模块操作"><a href="#Idea中模块操作" class="headerlink" title="Idea中模块操作"></a>Idea中模块操作</h2><h3 id="修改模块"><a href="#修改模块" class="headerlink" title="修改模块"></a>修改模块</h3><p>选择模块然后右键，Refactor -&gt; Rename -&gt; Rename module and directory</p><h3 id="导入模块"><a href="#导入模块" class="headerlink" title="导入模块"></a>导入模块</h3><ol><li>复制模块然后粘贴到Project里（此时没有进行关联）</li><li>File -&gt; New -&gt; Module from Existing Sources… 然后找到要导入的模块(一顿操作点击即可overwrite)</li><li>配置Jdk -&gt; Setup Sdk</li><li>如果爆红就重启idea</li></ol><h2 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h2><ol><li>单行注释：&#x2F;&#x2F; 用于方法内部</li><li>多行注释：&#x2F;* *&#x2F; 用于方法内部</li><li>文档注释：&#x2F;** *&#x2F; 多用于类和方法上</li></ol><h2 id="类型转换"><a href="#类型转换" class="headerlink" title="类型转换"></a>类型转换</h2><p>浮点型转为整数型，去掉小数，直接转换。</p><h2 id="表达式的自动类型提升"><a href="#表达式的自动类型提升" class="headerlink" title="表达式的自动类型提升"></a>表达式的自动类型提升</h2><p>在表达式中，小范围类型的变量，会自动转换成表达式中较大范围的类型，再参与运算。</p><blockquote><p>表达式的最终结果类型由表达式中的最高类型决定。<br>在表达式中，byte、short、char是直接转成int类型参与运算的。</p></blockquote><h2 id="号在Java中的特殊用途"><a href="#号在Java中的特殊用途" class="headerlink" title="+号在Java中的特殊用途"></a>+号在Java中的特殊用途</h2><ul><li>“+”有些时候可以做连接符</li><li>“+”与字符串运算的时候用作连接符，其结果依然是个字符串</li></ul><blockquote><p>如何识别”+”是做运算还是连接符？<br>能算则算，不能算就连接</p></blockquote>]]></content>
       
+      
+      <categories>
+          
+          <category> Java </category>
+          
+      </categories>
       
       
     </entry>
