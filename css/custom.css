@@ -509,4 +509,22 @@ center#name-container {
   background: #212121;
 }
 
+/* 给目录内容设置最大高度和滚动条 */
+.toc-content {
+  max-height: 70vh; /* 视窗高度的70%，可根据需要调整 */
+  overflow-y: auto; /* 当内容超出时显示垂直滚动条 */
+}
+
+/* 可选：美化滚动条样式（针对Webkit内核浏览器） */
+.toc-content::-webkit-scrollbar {
+  width: 4px;
+}
+.toc-content::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 2px;
+}
+.toc-content::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
 
